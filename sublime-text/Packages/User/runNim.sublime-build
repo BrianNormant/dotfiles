@@ -1,4 +1,0 @@
-{
-    "cmd" : "C:\\Nim\\bin\\nim.exe c -r $file",
-    "selector": "source.nim" 
-}

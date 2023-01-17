@@ -1,4 +1,0 @@
-{
-    "shell_cmd": "python $file_name",
-    "selector": "source.python.3"
-}
