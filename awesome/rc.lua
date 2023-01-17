@@ -45,10 +45,12 @@ network_interfaces = {
 
 -- List of apps to run on start-up
 local run_on_start_up = {
-   --"picom &",
+   "picom &",
    "redshift -l 45.51678:-73.64918",
    "unclutter",
-   "setxkbmap -layout \"us_intl,us\" -option \"grp:alt_shift_toggle\""
+   "setxkbmap -layout \"us_intl,us\" -option \"grp:alt_shift_toggle\"",
+   "pulseaudio -k",
+   "pulseaudio --start",
 }
 
 
