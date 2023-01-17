@@ -1,0 +1,9 @@
+[submodule "awesome/awesome-wm-widgets"]
+	path = awesome/awesome-wm-widgets
+	url = https://github.com/streetturtle/awesome-wm-widgets.git
+[submodule "awesome/awesome/net-widget"]
+	path = awesome/awesome/net-widget
+	url = https://github.com/pltanton/net_widgets.git
+[submodule "awesome/net-widget"]
+	path = awesome/net-widget
+	url = https://github.com/pltanton/net_widgets.git
