@@ -89,7 +89,7 @@ local function next_image()
    if (current > max) then
       current = 1
    end
-   wallpaper = wallpaper_dir .. "/".. wallpapers[current]wallpaper = wallpaper_dir .. "/".. wallpapers[current]wallpaper = wallpaper_dir .. "/".. wallpapers[current] ..".jpg"
+   wallpaper = wallpaper_dir .. "/".. wallpapers[current] ..".jpg"
    blurred_wallpaper = wallpaper_dir .. "/" .. wallpapers[current] .. "b.png"
    if is_blurred then
       awful.spawn.with_shell("feh --bg-fill " .. blurred_wallpaper)
