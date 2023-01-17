@@ -1,0 +1,4 @@
+{
+    "shell_cmd": "python $file",
+    "selector": "source.python.3"
+}

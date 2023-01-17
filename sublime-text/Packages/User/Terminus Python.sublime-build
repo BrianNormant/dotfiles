@@ -1,0 +1,8 @@
+{
+    "target": "terminus_exec",
+    "cancel": "terminus_cancel_build",
+    
+    "cmd": ["python", "$file_base_name.py"],
+    "selector": "source.python",
+    "file_regex": "^\\s*File \"(...*?)\", line ([0-9]*)",
+}
