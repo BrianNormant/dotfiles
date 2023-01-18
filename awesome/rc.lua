@@ -48,6 +48,7 @@ local run_on_start_up = {
    "picom &",
    "redshift -l 45.51678:-73.64918",
    "unclutter",
+   "copyq",
    "setxkbmap us",
    "pulseaudio -k",
    "pulseaudio --start",

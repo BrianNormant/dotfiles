@@ -175,6 +175,13 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "application launcher", group = "launcher"}
    ),
+   --spawn copyq
+   awful.key({modkey}, "v",
+      function()
+         awful.spawn("copyq show")
+      end,
+      {description = "clipboard manager", group = "launcher"}
+   ),
 
    -- ========================================= LAYOUT KEYS
    -- ========================================= Shit+Alt change the keyboard
