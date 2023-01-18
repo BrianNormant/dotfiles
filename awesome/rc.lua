@@ -76,7 +76,6 @@ end
 -- Import theme
 local beautiful = require("beautiful")
 beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/" .. theme .. "-theme.lua")
-
 -- Initialize theme
 local selected_theme = require(theme)
 selected_theme.initialize()

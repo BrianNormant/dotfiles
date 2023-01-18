@@ -41,6 +41,11 @@ theme.fg_focus = "#d88166"
 theme.fg_urgent = "#CC9393"
 theme.fg_minimize = "#CC9393"
 
+-- Hotkeys menu
+theme.hotkeys_bg = "#140c0bE0" -- semi transparent
+theme.hotkeys_fg = "#d88166"
+theme.hotkeys_font = "Terminus Bold 13"
+theme.hotkeys_description_font = "Terminus 13"
 -- Window Gap Distance
 theme.useless_gap = dpi(3)
 

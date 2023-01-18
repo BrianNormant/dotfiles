@@ -159,6 +159,15 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "open a terminal", group = "launcher"}
    ),
+
+   -- Spawn Shorcuts Help
+   awful.key({modkey}, "w",
+      function()
+         local hotkeys_popup = require("awful.hotkeys_popup")
+         hotkeys_popup.show_help()
+      end,
+      {description = "show shorcuts", group = "launcher"}
+   ),
    -- launch rofi
    awful.key({modkey}, "d",
       function()
@@ -167,16 +176,14 @@ keys.globalkeys = gears.table.join(
       {description = "application launcher", group = "launcher"}
    ),
 
-   -- =========================================
-   -- LAYOUT KEYS
-   -- =========================================
-   --Shit+Alt change the keyboard and tell it with a notification
-   awful.key({ "Mod1" }, "Shift_L", function ()
-      notify_keyboard_change()
-   end),
+   -- ========================================= LAYOUT KEYS
+   -- ========================================= Shit+Alt change the keyboard
+   -- and tell it with a notification
    awful.key({ "Shift" }, "Alt_L", function ()
       notify_keyboard_change()
-   end),
+      end,
+      {description = "change Layout", group = "client"}
+   ),
 
    -- =========================================
    -- FUNCTION KEYS
@@ -241,6 +248,12 @@ keys.globalkeys = gears.table.join(
    awful.key({}, "Print",
       function()
          awful.util.spawn(apps.screenshot, false)
+         naughty.notify({
+            presets = naughty.config.presets.normal,
+            title = "New screenshot!",
+            text = "In ~/Pictures",
+            position = "top_left"
+         })
       end
    ),
 
@@ -472,13 +485,13 @@ keys.globalkeys = gears.table.join(
    -- Gap control
    awful.key({modkey, "Shift"}, "minus",
       function()
-         awful.tag.incgap(5, nil)
+         awful.tag.incgap(1, nil)
       end,
       {description = "increment gaps size for the current tag", group = "gaps"}
    ),
    awful.key({modkey}, "minus",
       function()
-         awful.tag.incgap(-5, nil)
+         awful.tag.incgap(-1, nil)
       end,
       {description = "decrement gap size for the current tag", group = "gaps"}
    ),
