@@ -25,6 +25,21 @@ local altkey = "Mod1"
 -- define module table
 local keys = {}
 
+-- store the keyboards layouts
+local layouts_k = {"us", "us_intl"}
+local layouts_names_k = {"US", "US International"}
+local current_k = 0
+local function notify_keyboard_change()
+   current_k = (current_k + 1) % #layouts_k
+   awful.spawn.with_shell("setxkbmap " .. layouts_k[current_k + 1])
+   naughty.notify({
+         preset = naughty.config.presets.normal,
+         title = "Keyboard layout changed",
+         text = layouts_names_k[current_k + 1], -- In Lua, Table are 1 indexed
+         position = "top_middle"
+   })
+end
+
 
 -- ===================================================================
 -- Movement Functions (Called by some keybinds)
@@ -151,6 +166,17 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "application launcher", group = "launcher"}
    ),
+
+   -- =========================================
+   -- LAYOUT KEYS
+   -- =========================================
+   --Shit+Alt change the keyboard and tell it with a notification
+   awful.key({ "Mod1" }, "Shift_L", function ()
+      notify_keyboard_change()
+   end),
+   awful.key({ "Shift" }, "Alt_L", function ()
+      notify_keyboard_change()
+   end),
 
    -- =========================================
    -- FUNCTION KEYS

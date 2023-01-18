@@ -22,46 +22,35 @@ local naughty = require("naughty")
 
 local is_blurred = false;
 
-local wallpapers = {"1","2","3","4","5","6","7","8","9","10"}
-local current = 1
 local max = 7
+local current = math.random(1,max)
 local timeout = 20 -- in seconds
-
-local wallpaper_dir = "~/Wallpapers"
-local wallpaper = wallpaper_dir .. "/".. wallpapers[current].. ".jpg"
-local blurred_wallpaper = wallpaper_dir .. "/" .. wallpapers[current] .. "b.png"
+-- By default wallpaper are searched in ~/Wallpapers
+local wallpaper_dir = os.getenv("HOME") .. "/Wallpapers"
+local wallpaper = wallpaper_dir .. "/".. current.. ".jpg"
+local blurred_wallpaper = wallpaper_dir .. "/" .. current .. "b.png"
 
 awful.spawn.with_shell("feh --bg-fill " .. wallpaper)
 
 --- Check if a file or directory exists in this path
-local function exists(file)
-   local ok, err, code = os.rename(file, file)
-   if not ok then
-      if code == 13 then
-         -- Permission denied, but it exists
-         return true
-      end
-   end
-   return ok, err
+function file_exists(name)
+   --Make the assumption that if a file exist, it can be read.
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
 end
 
 -- check if blurred wallpaper needs to be created
-for i = 1, 10, 1 do
-   current = i
-   wallpaper = wallpaper_dir .. "/".. wallpapers[current].. ".jpg"
-   blurred_wallpaper = wallpaper_dir .. "/" .. wallpapers[current] .. "b.png"
-   if not exists(blurred_wallpaper) then
+for i = 1, max, 1 do
+   if not file_exists(wallpaper_dir .. "/" .. i .. "b.png") then
       naughty.notify({
          preset = naughty.config.presets.normal,
-         title = "Wallpaper",
+         title = wallpaper_dir .. "/" .. i .. "b.png",
          text = "Generating blurred wallpaper..."
       })
       -- uses image magick to create a blurred version of the wallpaper
-      awful.spawn.with_shell("convert -filter Gaussian -blur 0x10 " .. wallpaper .. " " .. blurred_wallpaper)
+      awful.spawn.with_shell("convert -filter Gaussian -blur 0x10 " .. wallpaper_dir .. "/" .. i .. ".jpg" .. " " .. wallpaper_dir .. "/" .. i .. "b.png")
    end
 end
-
-current = math.random(1,max)
 -- ===================================================================
 -- Functionality
 -- ===================================================================
@@ -89,8 +78,8 @@ local function next_image()
    if (current > max) then
       current = 1
    end
-   wallpaper = wallpaper_dir .. "/".. wallpapers[current] ..".jpg"
-   blurred_wallpaper = wallpaper_dir .. "/" .. wallpapers[current] .. "b.png"
+   wallpaper = wallpaper_dir .. "/".. current ..".jpg"
+   blurred_wallpaper = wallpaper_dir .. "/" .. current .. "b.png"
    if is_blurred then
       awful.spawn.with_shell("feh --bg-fill " .. blurred_wallpaper)
    else

@@ -48,7 +48,7 @@ local run_on_start_up = {
    "picom &",
    "redshift -l 45.51678:-73.64918",
    "unclutter",
-   "setxkbmap -layout \"us_intl,us\" -option \"grp:alt_shift_toggle\"",
+   "setxkbmap us",
    "pulseaudio -k",
    "pulseaudio --start",
 }
