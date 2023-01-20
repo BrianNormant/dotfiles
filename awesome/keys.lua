@@ -26,7 +26,7 @@ local altkey = "Mod1"
 local keys = {}
 
 -- store the keyboards layouts
-local layouts_k = {"us", "us_intl"}
+local layouts_k = {"us", "us intl lv3:ralt_switch"}
 local layouts_names_k = {"US", "US International"}
 local current_k = 0
 local function notify_keyboard_change()

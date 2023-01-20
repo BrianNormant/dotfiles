@@ -34,9 +34,66 @@ local top_panel = {}
 -- ===================================================================
 -- Bar Creation
 -- ===================================================================
-
+-- _______________/    \_10:27_/    \________________
+--todo, ajust the shape and size to have something clean
+-- I give up... for now...
 
 top_panel.create = function(s)
+   --ghost = awful.wibar({
+   --   screen = s,
+   --   ontop = false,
+   --   visible = true,
+   --   opacity = 0
+   --})
+   -- 1 big wibar witch contain 3 subbar
+   --[[
+   panel_left = awful.popup {
+      screen = s,
+      type = "dock",
+      ontop = true,
+      placement = awful.placement.top_left,
+      visible = true,
+      hide_on_right_click = true,
+      --TODO make the tasklist work god enough
+      widget = awful.widget.tasklist {
+         screen = s
+      },
+   }
+
+   panel_center = awful.popup {
+      screen = s,
+      type = "dock",
+      ontop = true,
+      placement = awful.placement.top,
+      visible = true,
+      widget = require("widgets.calendar").create(s),
+   }
+
+   panel_right = awful.popup {
+      screen = s,
+      type = "dock",
+      ontop = true,
+      placement = awful.placement.top_right,
+      visible = true,
+      hide_on_right_click = false,
+      widget = {
+         --TODO add separators
+         layout = wibox.layout.fixed.horizontal,
+         cmus_w(),
+         volume_w({
+            widget_type = 'arc'
+         }),
+         battery_w({
+            show_current_level = true
+         }),
+         fs_w(),
+         ram_w(),
+         cpu_w({
+            color = '#FFFF00',
+            timeout = 0.5
+         })
+      }
+   }]]
    local panel = awful.wibar({
       screen = s,
       position = "top",
@@ -96,3 +153,70 @@ top_panel.create = function(s)
 end
 
 return top_panel
+
+--[[
+local left_panel = awful.wibar({
+      screen = s,
+      x = s.geometry.x,
+      y = s.geometry.y,
+      stretch = false,
+      width = s.geometry.width * 2/7,
+   })
+   left_panel:setup {
+      expand = "inside",
+      layout = wibox.layout.align.horizontal,
+      task_list.create(s),
+      nil,
+      nil
+   }
+   -- left_panel.geometry = awful.placement.align(left_panel.geometry, "top_left")
+   local center_panel = awful.wibar({
+      screen = s,
+      position = "top",
+      stretch = false,
+      width = s.geometry.width * 1/14,
+      align = "centered",
+   })
+   center_panel:setup {
+      expand = "inside",
+      nil,
+      require("widgets.calendar").create(s),
+      nil,
+      layout = wibox.layout.align.horizontal,
+   }
+   local right_panel = awful.wibar({
+      screen = s,
+      position = "top",
+      stretch = false,
+      width = s.geometry.width * 2/7,
+      align = "right",
+   })
+   right_panel:setup {
+      layout = wibox.layout.align.horizontal,
+      expand = "inside",
+      {
+         layout = wibox.layout.fixed.horizontal,
+         wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
+         cmus_w(),
+         volume_w({
+            widget_type = 'arc'
+         }),
+         battery_w({
+            --font = "Bitstream Charter",
+            show_current_level = true
+         }),
+         fs_w(),
+         ram_w(),
+         cpu_w({
+            color = '#FFFF00',
+            timeout = 0.5
+         }),
+         wireless_w({interface="wlp1s0"}),
+         wired_w({
+            interfaces  = {"enp1s0"},
+            timeout     = 5
+         }),
+         wibox.layout.margin(require("widgets.layout-box"), dpi(5), dpi(5), dpi(5), dpi(5))
+      }
+   }
+]]
