@@ -161,7 +161,7 @@ keys.globalkeys = gears.table.join(
    ),
 
    -- Spawn Shorcuts Help
-   awful.key({modkey}, "w",
+   awful.key({modkey}, "s",
       function()
          local hotkeys_popup = require("awful.hotkeys_popup")
          hotkeys_popup.show_help()

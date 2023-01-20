@@ -4,6 +4,7 @@
 /home/brian/Music/livingroom.mp3
 /home/brian/Music/Overlord - Ending Theme 1.mp3
 /home/brian/Music/sweet dreams.mp3
+/home/brian/Music/the door.mp3
 /home/brian/Music/Trance - 009 Sound System Dreamscape (HD).mp3
 /home/brian/Music/Undertale Ost 087 - Hopes and Dreams.mp3
 /home/brian/Music/Undertale Ost 089 - SAVE the World.mp3

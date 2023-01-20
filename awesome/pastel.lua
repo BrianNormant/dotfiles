@@ -47,6 +47,12 @@ pastel.initialize = function()
       -- Only add the left panel on the primary screen
       if s.index == 1 then
          left_panel.create(s)
+         s:connect_signal("ouse::press", function()
+            local naughty = require("naughty")
+            naughty.notify({
+               text = "Mouse enter"
+            })
+         end)
       end
 
       -- Add the top panel to every screen
