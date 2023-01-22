@@ -22,7 +22,7 @@ local naughty = require("naughty")
 
 local is_blurred = false;
 
-local max = 7
+local max = 7 --TODO Make a tools to autofind the wallpapers avaibles
 local current = math.random(1,max)
 local timeout = 20 -- in seconds
 -- By default wallpaper are searched in ~/Wallpapers
@@ -91,13 +91,26 @@ end
 -- blur / unblur on tag change
 tag.connect_signal("property::selected", function(t)
    -- check if tag has any clients
-   for _ in pairs(t:clients()) do
-      blur()
-      return
+
+   for _, c in pairs(t:clients()) do
+      if not c.minimized then 
+          blur()
+          return
+      end
    end
    -- unblur if tag has no clients
    unblur()
 end)
+
+local function any_unminimized()
+   local t = awful.screen.focused().selected_tag
+   for _, c in pairs(t:clients()) do
+      if not c.minimized then
+         return true
+      end
+   end
+   return false
+end
 
 -- check if wallpaper should be blurred on client open
 client.connect_signal("manage", function(c)
@@ -107,12 +120,16 @@ end)
 -- check if wallpaper should be unblurred on client close
 client.connect_signal("unmanage", function(c)
    local t = awful.screen.focused().selected_tag
-   -- check if tag has any clients
-   for _ in pairs(t:clients()) do
-      return
+   -- check if tag has any clients unmaximized client
+   if any_unminimized() then unblur() end
+end)
+
+client.connect_signal("property::minimized", function(c)
+   if any_unminimized() then
+      blur()
+   else
+      unblur()
    end
-   -- unblur if tag has no clients
-   unblur()
 end)
 
 gears.timer {

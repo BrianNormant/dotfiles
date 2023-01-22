@@ -49,9 +49,12 @@ local run_on_start_up = {
    "redshift -l 45.51678:-73.64918",
    "unclutter",
    "copyq",
+   "fusuma",
    "setxkbmap us",
-   "pulseaudio -k",
+   "pulseaudio --kill",
    "pulseaudio --start",
+   "xinput --set-prop 12 \"libinput Tapping Enabled\" 1",
+   "xinput --set-prop 12 \"libinput Tapping Drag Enabled\" 0",
 }
 
 
@@ -64,14 +67,8 @@ local run_on_start_up = {
 require("components.notifications")
 
 -- Run all the apps listed in run_on_start_up
-for _, app in ipairs(run_on_start_up) do
-   local findme = app
-   local firstspace = app:find(" ")
-   if firstspace then
-      findme = app:sub(0, firstspace - 1)
-   end
-   -- pipe commands to bash to allow command to be shell agnostic
-   awful.spawn.with_shell(string.format("echo 'pgrep -u $USER -x %s > /dev/null || (%s)' | bash -", findme, app), false)
+for _, command in ipairs(run_on_start_up) do
+   awful.spawn.with_shell(command, false)
 end
 
 -- Import theme

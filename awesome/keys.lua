@@ -197,38 +197,35 @@ keys.globalkeys = gears.table.join(
    -- =========================================
 
    -- Brightness
-   awful.key({}, "XF86MonBrightnessUp",
-      function()
-         awful.spawn("xbacklight -inc 10", false)
-      end,
-      {description = "+10%", group = "hotkeys"}
-   ),
    awful.key({}, "XF86MonBrightnessDown",
       function()
-         awful.spawn("xbacklight -dec 10", false)
+         awful.spawn("brightnessctl set 5%-", false)
       end,
-      {description = "-10%", group = "hotkeys"}
+      {description = "-5%", group = "hotkeys"}
+   ),
+   awful.key({}, "XF86MonBrightnessUp",
+      function()
+         awful.spawn("brightnessctl set 5%+", false)
+      end,
+      {description = "+5%", group = "hotkeys"}
    ),
 
-   -- ALSA volume control
+   -- ALSA/Pulse? volume control
    awful.key({}, "XF86AudioRaiseVolume",
       function()
-         awful.spawn("amixer sset PCM 5%+", false)
-         awesome.emit_signal("volume_change")
+         awful.spawn("amixer sset Master 5%+", false)
       end,
       {description = "volume up", group = "hotkeys"}
    ),
    awful.key({}, "XF86AudioLowerVolume",
       function()
-         awful.spawn("amixer sset PCM 5%-", false)
-         awesome.emit_signal("volume_change")
+         awful.spawn("amixer sset Master 5%-", false)
       end,
       {description = "volume down", group = "hotkeys"}
    ),
    awful.key({}, "XF86AudioMute",
       function()
-         awful.spawn("amixer sset PCM toggle", false)
-         awesome.emit_signal("volume_change")
+         awful.spawn("pactl set-sink-mute 0 toggle", false)
       end,
       {description = "toggle mute", group = "hotkeys"}
    ),
