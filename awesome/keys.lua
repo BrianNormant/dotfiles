@@ -201,13 +201,13 @@ keys.globalkeys = gears.table.join(
       function()
          awful.spawn("brightnessctl set 5%-", false)
       end,
-      {description = "-5%", group = "hotkeys"}
+      {description = "-5%", group = "media"}
    ),
    awful.key({}, "XF86MonBrightnessUp",
       function()
          awful.spawn("brightnessctl set 5%+", false)
       end,
-      {description = "+5%", group = "hotkeys"}
+      {description = "+5%", group = "media"}
    ),
 
    -- ALSA/Pulse? volume control
@@ -215,38 +215,111 @@ keys.globalkeys = gears.table.join(
       function()
          awful.spawn("amixer sset Master 5%+", false)
       end,
-      {description = "volume up", group = "hotkeys"}
+      {description = "volume up", group = "media"}
    ),
    awful.key({}, "XF86AudioLowerVolume",
       function()
          awful.spawn("amixer sset Master 5%-", false)
       end,
-      {description = "volume down", group = "hotkeys"}
+      {description = "volume down", group = "media"}
    ),
    awful.key({}, "XF86AudioMute",
       function()
          awful.spawn("pactl set-sink-mute 0 toggle", false)
       end,
-      {description = "toggle mute", group = "hotkeys"}
+      {description = "toggle mute", group = "media"}
    ),
+   awful.key({altkey}, "XF86AudioRaiseVolume",
+         function()
+            awful.spawn("playerctl next", false)
+         end,
+         {description = "Next media", group = "media"}
+      ),
+      awful.key({altkey}, "XF86AudioLowerVolume",
+         function()
+            awful.spawn("playerctl previous", false)
+         end,
+         {description = "Previous Media", group = "media"}
+      ),
+      awful.key({altkey}, "XF86AudioMute",
+         function()
+            awful.spawn("playerctl play-pause", false)
+         end,
+         {description = "Play-Pause media", group = "media"}
+      ),
    awful.key({}, "XF86AudioNext",
       function()
-         awful.spawn("mpc next", false)
+         awful.spawn("playerctl next", false)
       end,
-      {description = "next music", group = "hotkeys"}
+      {description = "next media", group = "media"}
    ),
    awful.key({}, "XF86AudioPrev",
       function()
-         awful.spawn("mpc prev", false)
+         awful.spawn("playerctl previous", false)
       end,
-      {description = "previous music", group = "hotkeys"}
+      {description = "previous media", group = "media"}
    ),
    awful.key({}, "XF86AudioPlay",
       function()
-         awful.spawn("mpc toggle", false)
+         awful.spawn("playerctl play-pause", false)
       end,
-      {description = "play/pause music", group = "hotkeys"}
+      {description = "play/pause music", group = "media"}
    ),
+   awful.key({"Shift"}, "XF86AudioNext",
+     function()
+        awful.spawn("playerctl -a next", false)
+     end,
+     {description = "next media for all", group = "media"}
+  ),
+  awful.key({"Shift"}, "XF86AudioPrev",
+     function()
+        awful.spawn("playerctl -a previous", false)
+     end,
+     {description = "previous media for all", group = "media"}
+  ),
+  awful.key({"Shift"}, "XF86AudioPlay",
+     function()
+        awful.spawn("playerctl -a play-pause", false)
+     end,
+     {description = "play/pause media for all", group = "media"}
+  ),
+  awful.key({altkey}, "XF86AudioNext",
+     function()
+        awful.spawn("playerctl position 10+", false)
+     end,
+       {description = "Media go forward 10s", group = "media"}
+    ),
+    awful.key({altkey}, "XF86AudioPrev",
+       function()
+          awful.spawn("playerctl position 10-", false)
+       end,
+       {description = "Media go backward 10s", group = "media"}
+    ),
+    awful.key({altkey}, "XF86AudioPlay",
+       function()
+          awful.spawn("playerctl stop", false)
+       end,
+       {description = "Stop the media player", group = "media"}
+    ),
+    awful.key({altkey, "Shift"}, "XF86AudioNext",
+       function()
+          awful.spawn("playerctl position 60+", false)
+       end,
+       {description = "Media go forward 1 min", group = "media"}
+    ),
+    awful.key({altkey, "Shift"}, "XF86AudioPrev",
+       function()
+          awful.spawn("playerctl position 60-", false)
+       end,
+       {description = "Media go backward 1 min", group = "media"}
+    ),
+    awful.key({altkey, "Shift"}, "XF86AudioPlay",
+       function()
+          awful.spawn("playerctl -a stop", false)
+       end,
+       {description = "Stop all media", group = "media"}
+    ),
+  
 
    -- Screenshot on prtscn using scrot
    awful.key({}, "Print",

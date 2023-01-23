@@ -45,13 +45,14 @@ network_interfaces = {
 
 -- List of apps to run on start-up
 local run_on_start_up = {
+   "pkill fusuma", -- In case of a awesome reload
+   "pkill redshift", -- In case of a awesome reload 
    "picom &",
    "redshift -l 45.51678:-73.64918",
    "unclutter",
    "copyq",
    "fusuma",
    "setxkbmap us",
-   "pulseaudio --kill",
    "pulseaudio --start",
    "xinput --set-prop 12 \"libinput Tapping Enabled\" 1",
    "xinput --set-prop 12 \"libinput Tapping Drag Enabled\" 0",
