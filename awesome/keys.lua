@@ -19,7 +19,8 @@ local dpi = beautiful.xresources.apply_dpi
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 
 -- Define mod keys
-local modkey = "Mod4"
+local modkey = "Mod4" --When changing this key, don't forget to also change the key in
+-- awesome/widget/tag-list.lua, line:18
 local altkey = "Mod1"
 
 -- define module table
@@ -181,6 +182,12 @@ keys.globalkeys = gears.table.join(
          awful.spawn("copyq show")
       end,
       {description = "clipboard manager", group = "launcher"}
+   ),
+   
+   -- Hide/Show sidebar
+   awful.key({modkey}, "backslash",
+      selected_theme.left_panel.toggle,
+      {description = "toggle sidebar", group = "hotkeys"}
    ),
 
    -- ========================================= LAYOUT KEYS

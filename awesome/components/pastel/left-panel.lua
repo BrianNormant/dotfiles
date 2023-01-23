@@ -96,25 +96,24 @@ left_panel.create = function(s)
 
 
    -- hide panel when the mouse leave for more than x seconds
-   local function toggle_sidebar()
-      if mouse.coords().x >= s.geometry.x and
-         mouse.coords().x <= s.geometry.x + beautiful.left_panel_width
-      then 
-         panel.visible = true
-         sidebar_timer:stop()
-      else
-         panel.visible = false
-         sidebar_timer:start()
-      end
-   end
-   sidebar_timer = gears.timer({
-      timeout = .25,
-      autostart = true,
-      callback = toggle_sidebar
-   })
-   panel:connect_signal("property::visible", toggle_sidebar)
+   -- local function toggle_sidebar()
+      -- if mouse.coords().x >= s.geometry.x and
+         -- mouse.coords().x <= s.geometry.x + beautiful.left_panel_width
+      -- then
+         -- panel.visible = true
+         -- sidebar_timer:stop()
+      -- else
+         -- panel.visible = false
+         -- sidebar_timer:start()
+      -- end
+   -- end
+   -- sidebar_timer = gears.timer({
+      -- timeout = .25,
+      -- autostart = true,
+      -- callback = toggle_sidebar
+   -- })
+   -- panel:connect_signal("property::visible", toggle_sidebar)
    panel:connect_signal("mouse::leave", function() panel.visible = false end)
-
    -- connect panel visibility function to relevant signals
    client.connect_signal("property::fullscreen", change_panel_visibility)
    client.connect_signal("focus", change_panel_visibility)
@@ -202,5 +201,7 @@ left_panel.create = function(s)
       end
    end)
 end
+
+left_panel.toggle = function () panel.visible = not panel.visible end
 
 return left_panel

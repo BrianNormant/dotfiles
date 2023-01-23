@@ -15,7 +15,7 @@ local wibox = require('wibox')
 local dpi = require('beautiful').xresources.apply_dpi
 local capi = {button = button}
 local clickable_container = require('widgets.clickable-container')
-local modkey = require('keys').modkey
+local modkey = "Mod4"
 
 -- define module table
 local tag_list = {}

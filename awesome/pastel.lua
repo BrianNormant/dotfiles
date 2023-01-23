@@ -15,10 +15,12 @@ local gears = require("gears")
 
 local pastel = {}
 
-
 -- ===================================================================
 -- Pastel setup
 -- ===================================================================
+-- Import panels
+pastel.left_panel = require("components.pastel.left-panel")
+pastel.top_panel = require("components.pastel.top-panel")
 
 
 pastel.initialize = function()
@@ -26,10 +28,6 @@ pastel.initialize = function()
    require("components.pastel.wallpaper")
    require("components.exit-screen")
    require("components.volume-adjust")
-
-   -- Import panels
-   local left_panel = require("components.pastel.left-panel")
-   local top_panel = require("components.pastel.top-panel")
 
    -- Set up each screen (add tags & panels)
    awful.screen.connect_for_each_screen(function(s)
@@ -46,7 +44,7 @@ pastel.initialize = function()
 
       -- Only add the left panel on the primary screen
       if s.index == 1 then
-         left_panel.create(s)
+         pastel.left_panel.create(s)
          s:connect_signal("ouse::press", function()
             local naughty = require("naughty")
             naughty.notify({
@@ -56,7 +54,7 @@ pastel.initialize = function()
       end
 
       -- Add the top panel to every screen
-      top_panel.create(s)
+      pastel.top_panel.create(s)
    end)
 end
 
