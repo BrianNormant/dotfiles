@@ -121,7 +121,7 @@ end)
 client.connect_signal("unmanage", function(c)
    local t = awful.screen.focused().selected_tag
    -- check if tag has any clients unmaximized client
-   if any_unminimized() then unblur() end
+   if any_unminimized() then blur() else unblur() end
 end)
 
 client.connect_signal("property::minimized", function(c)
