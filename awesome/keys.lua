@@ -220,19 +220,19 @@ keys.globalkeys = gears.table.join(
    -- ALSA/Pulse? volume control
    awful.key({}, "XF86AudioRaiseVolume",
       function()
-         awful.spawn("amixer sset Master 5%+", false)
+         awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%", false)
       end,
       {description = "volume up", group = "media"}
    ),
    awful.key({}, "XF86AudioLowerVolume",
       function()
-         awful.spawn("amixer sset Master 5%-", false)
+         awful.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%", false)
       end,
       {description = "volume down", group = "media"}
    ),
    awful.key({}, "XF86AudioMute",
       function()
-         awful.spawn("pactl set-sink-mute 0 toggle", false)
+         awful.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle", false)
       end,
       {description = "toggle mute", group = "media"}
    ),

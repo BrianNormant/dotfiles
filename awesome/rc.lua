@@ -33,7 +33,7 @@ apps = {
    launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
    lock = "i3lock",
    screenshot = "scrot -e 'mv $f ~/Pictures/ 2>/dev/null'",
-   filebrowser = "nautilus"
+   filebrowser = "mc"
 }
 
 -- define wireless and ethernet interface names for the network widget
