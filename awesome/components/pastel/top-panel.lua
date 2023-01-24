@@ -23,9 +23,11 @@ local ram_w = require("awesome-wm-widgets.ram-widget.ram-widget")
 local volume_w = require("awesome-wm-widgets.volume-widget.volume")
 local cmus_w = require('awesome-wm-widgets.cmus-widget.cmus')
 local fs_w = require("awesome-wm-widgets.fs-widget.fs-widget")
-local battery_w = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local battery_w = require("awesome-wm-widgets.battery-widget.battery")
 local wireless_w = require("net-widget.wireless")
 local wired_w = require("net-widget.indicator")
+local brightness_w = require("awesome-wm-widgets.brightness-widget.brightness")
+local pacman_w = require('awesome-wm-widgets.pacman-widget.pacman')
 
 -- define module table
 local top_panel = {}
@@ -109,22 +111,70 @@ top_panel.create = function(s)
       require("widgets.calendar").create(s),
       {
          layout = wibox.layout.fixed.horizontal,
+         spacing = 3,
          wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
          cmus_w(),
-         volume_w({
-            widget_type = 'arc'
-         }),
-         battery_w({
-            --font = "Bitstream Charter",
-            show_current_level = true
-         }),
-         fs_w(),
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 0,
+            wibox.widget.textbox ('['),
+            awful.widget.keyboardlayout {
+               
+            },
+            wibox.widget.textbox(']')
+         },
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 0,
+            wibox.widget.textbox ('['),
+            pacman_w(),
+            wibox.widget.textbox(']')
+         },
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 2,
+            wibox.widget.textbox ('['),
+            volume_w({
+               widget_type = 'horizontal_bar',
+               main_color = '#FF0018',
+               mute_color = '#550018',
+            }),
+            wibox.widget.textbox(']')
+         },
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 2,
+            wibox.widget.textbox ('['),
+            battery_w({
+               font = "Terminus 12",
+               show_current_level = true,
+               display_notification = true,
+            }),
+            wibox.widget.textbox(']')
+         },
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 2,
+            wibox.widget.textbox ('['),
+            brightness_w({
+               type = 'icon_and_text',
+               program = 'brightnessctl'
+            }),
+            wibox.widget.textbox(']')
+         },
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 2,
+            wibox.widget.textbox ('['),
+            fs_w(),
+            wibox.widget.textbox(']')
+         },
          ram_w(),
          cpu_w({
             color = '#FFFF00',
             timeout = 0.5
          }),
-         wireless_w({interface="wlp1s0"}),
+         wireless_w({interface="wlan0"}),
          wired_w({
             interfaces  = {"enp1s0"},
             timeout     = 5

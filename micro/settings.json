@@ -1,5 +1,6 @@
 {
     "colorscheme": "simple",
     "ftoptions": false,
+    "tabsize": 3,
     "tabstospaces": true
 }
