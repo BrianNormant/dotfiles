@@ -28,6 +28,7 @@ local wireless_w = require("net-widget.wireless")
 local wired_w = require("net-widget.indicator")
 local brightness_w = require("awesome-wm-widgets.brightness-widget.brightness")
 local pacman_w = require('awesome-wm-widgets.pacman-widget.pacman')
+local netspeed_w = require("awesome-wm-widgets.net-speed-widget.net-speed")
 
 -- define module table
 local top_panel = {}
@@ -108,7 +109,7 @@ top_panel.create = function(s)
       expand = "none",
       layout = wibox.layout.align.horizontal,
       task_list.create(s),
-      require("widgets.calendar").create(s),
+      wibox.widget.textclock(),
       {
          layout = wibox.layout.fixed.horizontal,
          spacing = 3,
@@ -126,7 +127,7 @@ top_panel.create = function(s)
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 0,
-            wibox.widget.textbox ('['),
+            wibox.widget.textbox ('[pacman:'),
             pacman_w(),
             wibox.widget.textbox(']')
          },
@@ -169,7 +170,17 @@ top_panel.create = function(s)
             fs_w(),
             wibox.widget.textbox(']')
          },
-         ram_w(),
+         {
+            layout = wibox.layout.fixed.horizontal,
+            spacing = 2,
+            wibox.widget.textbox ('['),
+            ram_w({
+               color_used = '#c13012',
+               color_buf = '#c13012',
+               color_free = '#1292c1'
+            }),
+            wibox.widget.textbox(']')
+         },
          cpu_w({
             color = '#FFFF00',
             timeout = 0.5
@@ -179,6 +190,7 @@ top_panel.create = function(s)
             interfaces  = {"enp1s0"},
             timeout     = 5
          }),
+         netspeed_w(),
          wibox.layout.margin(require("widgets.layout-box"), dpi(5), dpi(5), dpi(5), dpi(5))
       }
    }
