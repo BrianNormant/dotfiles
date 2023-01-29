@@ -160,6 +160,13 @@ keys.globalkeys = gears.table.join(
       end,
       {description = "open a terminal", group = "launcher"}
    ),
+   -- Spawn Cooler Terminal
+   awful.key({modkey, altkey}, "Return",
+      function()
+         awful.spawn("cool-retro-term")
+      end,
+      {description = "open a terminal", group = "launcher"}
+   ),
 
    -- Spawn Shorcuts Help
    awful.key({modkey}, "s",

@@ -22,9 +22,9 @@ local naughty = require("naughty")
 
 local is_blurred = false;
 
-local max = 7 --TODO Make a tools to autofind the wallpapers avaibles
-local current = math.random(1,max)
-local timeout = 20 -- in seconds
+local max = 30 --TODO Make a tools to autofind the wallpapers avaibles
+local current = math.random(0,max)
+local timeout = 25 -- in seconds
 -- By default wallpaper are searched in ~/Wallpapers
 local wallpaper_dir = os.getenv("HOME") .. "/Wallpapers"
 local wallpaper = wallpaper_dir .. "/".. current.. ".jpg"
@@ -40,7 +40,7 @@ function file_exists(name)
 end
 
 -- check if blurred wallpaper needs to be created
-for i = 1, max, 1 do
+for i = 0, max, 1 do
    if not file_exists(wallpaper_dir .. "/" .. i .. "b.png") then
       naughty.notify({
          preset = naughty.config.presets.normal,
@@ -74,10 +74,7 @@ end
 
 -- change the current image to the next one
 local function next_image()
-   current = current + 1
-   if (current > max) then
-      current = 1
-   end
+   current = (current + math.random(0, 5)) % max
    wallpaper = wallpaper_dir .. "/".. current ..".jpg"
    blurred_wallpaper = wallpaper_dir .. "/" .. current .. "b.png"
    if is_blurred then
@@ -93,7 +90,7 @@ tag.connect_signal("property::selected", function(t)
    -- check if tag has any clients
 
    for _, c in pairs(t:clients()) do
-      if not c.minimized then 
+      if not c.minimized then
           blur()
           return
       end

@@ -3,6 +3,8 @@ base_color=normal=,default:markselect=,:menu=,:menuhot=,:menusel=,:menuhotsel=,:
 alacritty=
 color_terminals=
 
+xterm=
+
 [Midnight-Commander]
 verbose=true
 shell_patterns=true
@@ -90,9 +92,11 @@ editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=modarin256
 
+filepos_max_saved_entries=1024
+
 [Layout]
 output_lines=0
-left_panel_size=43
+left_panel_size=78
 top_panel_size=0
 message_visible=true
 keybar_visible=true
