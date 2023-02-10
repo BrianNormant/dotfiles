@@ -29,7 +29,8 @@ local theme_config_dir = gears.filesystem.get_configuration_dir() .. "configurat
 apps = {
    network_manager = "", -- recommended: nm-connection-editor
    power_manager = "", -- recommended: xfce4-power-manager
-   terminal = "alacritty",
+   terminal = "cool-retro-term",
+   terminal_b = "alacritty",
    launcher = "rofi -normal-window -modi drun -show drun -theme " .. theme_config_dir .. "rofi.rasi",
    lock = "i3lock",
    screenshot = "scrot -e 'mv $f ~/Pictures/ 2>/dev/null'",
@@ -43,6 +44,13 @@ network_interfaces = {
    lan = 'enp1s0'
 }
 
+-- Small utils to get the xinput id of the touchpad
+local id = 11
+awful.spawn.easy_async_with_shell("xinput list | awk '/Touchpad/{print substr($6,4,5)}'", function(out, err, _, _)
+   require("naughty").notify{ text = out}
+   local id = out
+end)
+
 -- List of apps to run on start-up
 local run_on_start_up = {
    "pkill fusuma", -- In case of a awesome reload
@@ -54,8 +62,8 @@ local run_on_start_up = {
    "fusuma",
    "setxkbmap us",
    "pulseaudio --start",
-   "xinput --set-prop 12 \"libinput Tapping Enabled\" 1",
-   "xinput --set-prop 12 \"libinput Tapping Drag Enabled\" 0",
+   "xinput --set-prop " .. id .." \"libinput Tapping Enabled\" 1",
+   "xinput --set-prop " .. id .." \"libinput Tapping Drag Enabled\" 0",
 }
 
 

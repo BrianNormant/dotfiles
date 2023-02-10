@@ -159,7 +159,8 @@ top_panel.create = function(s)
             wibox.widget.textbox ('['),
             brightness_w({
                type = 'icon_and_text',
-               program = 'brightnessctl'
+               program = 'brightnessctl',
+               base = 50;
             }),
             wibox.widget.textbox(']')
          },
