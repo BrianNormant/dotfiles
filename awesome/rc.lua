@@ -48,7 +48,7 @@ network_interfaces = {
 local id = 11
 awful.spawn.easy_async_with_shell("xinput list | awk '/Touchpad/{print substr($6,4,5)}'", function(out, err, _, _)
    require("naughty").notify{ text = out}
-   local id = out
+   id = out
 end)
 
 -- List of apps to run on start-up
@@ -62,8 +62,8 @@ local run_on_start_up = {
    "fusuma",
    "setxkbmap us",
    "pulseaudio --start",
-   "xinput --set-prop " .. id .." \"libinput Tapping Enabled\" 1",
-   "xinput --set-prop " .. id .." \"libinput Tapping Drag Enabled\" 0",
+   "xinput --set-prop ".. id .." \"libinput Tapping Enabled\" 1",
+   "xinput --set-prop ".. id .." \"libinput Tapping Drag Enabled\" 0",
 }
 
 

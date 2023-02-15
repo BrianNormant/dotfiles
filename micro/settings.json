@@ -1,5 +1,6 @@
 {
-    "colorscheme": "simple",
+    "colorscheme": "geany",
+    "filemanager-openonstart": true,
     "ftoptions": false,
     "tabsize": 3,
     "tabstospaces": true

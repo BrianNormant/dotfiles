@@ -4,5 +4,6 @@
     "Alt-d": "lua:snippets.Cancel",
     "Alt-s": "lua:snippets.Insert",
     "Alt-w": "lua:snippets.Next",
-    "CtrlUnderscore": "lua:comment.comment"
+    "CtrlUnderscore": "lua:comment.comment",
+    "F4": "command:jumptag"
 }

@@ -5,6 +5,10 @@ color_terminals=
 
 xterm=
 
+tmux-256color=
+
+xterm-256color=
+
 [Midnight-Commander]
 verbose=true
 shell_patterns=true
@@ -90,13 +94,13 @@ editor_backup_extension=~
 editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
-skin=gotar
+skin=modarin256
 
 filepos_max_saved_entries=1024
 
 [Layout]
 output_lines=0
-left_panel_size=42
+left_panel_size=39
 top_panel_size=0
 message_visible=true
 keybar_visible=true
