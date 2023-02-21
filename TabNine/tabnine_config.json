@@ -4,11 +4,10 @@
   "beta_enabled": "No",
   "ignore_all_lsp": false,
   "creation_time": "2022-12-14T02:35:11.480999161Z",
-  "guuid": null,
+  "guuid": "c74b80a9a22e6cf46b06e3ac3b7ca571817d49de8fda15170e4065a174c1263b",
   "semantic_status": {},
   "enable_telemetry": true,
   "user_understands_that_enabling_tabnine_cloud_sends_code_to_tabnine_servers": true,
-  "deep_completions_work_mode": "LocalOnly",
   "hosted_deep_completions_enabled": "Disabled",
   "tabnine_cloud_host": null,
   "tabnine_cloud_certificate_domain": null,
@@ -17,6 +16,7 @@
   "num_of_suggestions": 5,
   "line_suggestions": null,
   "omit_prefix_suggestions": null,
+  "team_ai_local_collection": null,
   "api_key": null,
   "api_base_url": null,
   "binary_update_interval_seconds": null,
@@ -36,14 +36,11 @@
   "override_context_length": null,
   "onboarding": null,
   "has_git_repos": null,
-  "gusr": null,
+  "gusr": {
+    "dgc": "c74b80a9a22e6cf46b06e3ac3b7ca571817d49de8fda15170e4065a174c1263b"
+  },
   "exclude_file_masks": null,
   "inline_suggestions_mode": null,
   "use_specialized_model_if_available": null,
-  "snippets_enabled_v2": null,
-  "inline_suggestions_mode_clients": null,
-  "tabnine_hub_port": 1123,
-  "manually_selected_model": null,
-  "hybrid_rendering_mode": null,
-  "force_local_hub": false
+  "snippets_auto_trigger_enabled": null
 }

@@ -1,7 +1,9 @@
 {
-    "colorscheme": "geany",
+    "colorscheme": "dukedark-tc",
     "filemanager-openonstart": true,
     "ftoptions": false,
-    "tabsize": 3,
+    "lsp.autocompleteDetails": true,
+    "lsp.ignoreTriggerCharacters": "completion,signature",
+    "lsp.server": "python=pyls, c=ccls, c++=ccls, java=jdtls, nim=nimlsp, lua=lua-language-server",
     "tabstospaces": true
 }

@@ -120,7 +120,14 @@ local function list_update(w, buttons, label, data, objects)
       local text, bg, bg_image, icon, args = label(o, tb)
       args = args or {}
 
-      -- The text might be invalid, so use pcall.
+      text = text:match('<.*>(.+)<.*>');
+      if text:len() > 25 then
+         text = text:sub(0, 25 ) .. '...'
+      end
+      tb.text = text
+      -- The text might be invalid, so use pcall. 
+
+      --[[
       if text == nil or text == '' then
          tbm:set_margins(0)
       else
@@ -136,7 +143,7 @@ local function list_update(w, buttons, label, data, objects)
          if not tb:set_markup_silently(text) then
             tb:set_markup('<i>&lt;Invalid text&gt;</i>')
          end
-      end
+      end]]
       bgb:set_bg(bg)
       if type(bg_image) == 'function' then
          -- TODO: Why does this pass nil as an argument?
@@ -207,7 +214,7 @@ task_list.create = function(s)
       tasklist_buttons,
       {},
       list_update,
-      wibox.layout.fixed.horizontal()
+      wibox.layout.ratio.horizontal()
    )
 end
 

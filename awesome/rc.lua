@@ -45,12 +45,6 @@ network_interfaces = {
 }
 
 -- Small utils to get the xinput id of the touchpad
-local id = 11
-awful.spawn.easy_async_with_shell("xinput list | awk '/Touchpad/{print substr($6,4,5)}'", function(out, err, _, _)
-   require("naughty").notify{ text = out}
-   id = out
-end)
-
 -- List of apps to run on start-up
 local run_on_start_up = {
    "pkill fusuma", -- In case of a awesome reload
@@ -61,9 +55,6 @@ local run_on_start_up = {
    "copyq",
    "fusuma",
    "setxkbmap us",
-   "pulseaudio --start",
-   "xinput --set-prop ".. id .." \"libinput Tapping Enabled\" 1",
-   "xinput --set-prop ".. id .." \"libinput Tapping Drag Enabled\" 0",
 }
 
 
@@ -162,7 +153,6 @@ end)
 
 -- Reload config when screen geometry changes
 screen.connect_signal("property::geometry", awesome.restart)
-
 
 -- ===================================================================
 -- Garbage collection (allows for lower memory consumption)
