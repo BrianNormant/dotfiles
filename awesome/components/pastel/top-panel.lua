@@ -104,6 +104,8 @@ top_panel.create = function(s)
       height = beautiful.top_panel_height,
       width = s.geometry.width,
    })
+   
+   local cmus_widget = cmus_w()
 
    panel:setup {
       expand = "none",
@@ -112,9 +114,16 @@ top_panel.create = function(s)
       wibox.widget.textclock(),
       {
          layout = wibox.layout.fixed.horizontal,
+         --inner_fill_strategy = 'justify',
+         --forced_width = 920,
          spacing = 3,
          wibox.layout.margin(wibox.widget.systray(), dpi(5), dpi(5), dpi(5), dpi(5)),
-         cmus_w(),
+         {
+            layout = wibox.layout.fixed.horizontal,
+            forced_width = 150,
+            cmus_widget,
+         },
+         
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 0,
@@ -134,13 +143,11 @@ top_panel.create = function(s)
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 2,
-            wibox.widget.textbox ('['),
             volume_w({
                widget_type = 'horizontal_bar',
                main_color = '#FF0018',
                mute_color = '#550018',
             }),
-            wibox.widget.textbox(']')
          },
          {
             layout = wibox.layout.fixed.horizontal,
@@ -156,31 +163,25 @@ top_panel.create = function(s)
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 2,
-            wibox.widget.textbox ('['),
             brightness_w({
                type = 'icon_and_text',
                program = 'brightnessctl',
                base = 50;
             }),
-            wibox.widget.textbox(']')
          },
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 2,
-            wibox.widget.textbox ('['),
             fs_w(),
-            wibox.widget.textbox(']')
          },
          {
             layout = wibox.layout.fixed.horizontal,
             spacing = 2,
-            wibox.widget.textbox ('['),
             ram_w({
                color_used = '#c13012',
                color_buf = '#c13012',
                color_free = '#1292c1'
             }),
-            wibox.widget.textbox(']')
          },
          cpu_w({
             color = '#FFFF00',
