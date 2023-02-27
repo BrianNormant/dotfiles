@@ -350,7 +350,7 @@ keys.globalkeys = gears.table.join(
    -- Screenshot on Mod+Shift+S whith selection
       awful.key({modkey, "Shift"}, "s",
          function()
-            awful.util.spawn("scrot -s -f -F '%Y-%m-%d_%H:%M_scrot.png' -e 'mv $f ~/Pictures/' ", false)
+            awful.util.spawn_with_shell("scrot -s -f -F '%Y-%m-%d_%H:%M_scrot.png' -e 'copyq copy image/png - < $f' ", false)
             naughty.notify({
                presets = naughty.config.presets.normal,
                title = "New screenshot!",

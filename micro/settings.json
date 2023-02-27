@@ -1,9 +1,17 @@
 {
     "colorscheme": "dukedark-tc",
+    "diffgutter": true,
     "filemanager-openonstart": true,
     "ftoptions": false,
+    "ignorecase": false,
     "lsp.autocompleteDetails": true,
     "lsp.ignoreTriggerCharacters": "completion,signature",
-    "lsp.server": "python=pyls, c=ccls, c++=ccls, java=jdtls, nim=nimlsp, lua=lua-language-server",
-    "tabstospaces": true
+    "lsp.server": "go=gopls, python=pyls, c=ccls, c++=ccls, java=jdtls, nim=nimlsp, lua=lua-language-server",
+    "mkparents": true,
+    "savecursor": true,
+    "smartpaste": false,
+    "softwrap": true,
+    "sucmd": "doas",
+    "tabstospaces": true,
+    "wordwrap": true
 }

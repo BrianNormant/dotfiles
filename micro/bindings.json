@@ -4,9 +4,12 @@
     "Alt-d": "lua:snippets.Cancel",
     "Alt-f": "command:format",
     "Alt-k": "command:hover",
+    "Alt-n": "FindPrevious",
     "Alt-r": "command:references",
     "Alt-s": "lua:snippets.Insert",
     "Alt-w": "lua:snippets.Next",
+    "Ctrl-n": "FindNext",
+    "Ctrl-p": "FindPrevious",
     "CtrlSpace": "command:lspcompletion",
     "CtrlUnderscore": "lua:comment.comment",
     "F4": "command:jumptag"
