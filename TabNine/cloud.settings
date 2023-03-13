@@ -9,7 +9,6 @@
     "jwt": null,
     "cloud_whitelist": [],
     "hosted_deep_completions_enabled": "Disabled",
-    "deep_completions_work_mode": "LocalOnly",
     "omit_prefix_suggestions": false
   }
 }

@@ -4,13 +4,21 @@
     "Alt-d": "lua:snippets.Cancel",
     "Alt-f": "command:format",
     "Alt-k": "command:hover",
-    "Alt-n": "FindPrevious",
     "Alt-r": "command:references",
     "Alt-s": "lua:snippets.Insert",
     "Alt-w": "lua:snippets.Next",
+    "AltCtrlSpace": "command:palettero",
+    "Ctrl-F2": "command:toggleBookmark",
+    "Ctrl-f": "Find",
     "Ctrl-n": "FindNext",
     "Ctrl-p": "FindPrevious",
+    "CtrlShift-F2": "command:clearBookmarks",
     "CtrlSpace": "command:lspcompletion",
     "CtrlUnderscore": "lua:comment.comment",
-    "F4": "command:jumptag"
+    "F1": "command:cheat",
+    "F12": "command:makeup",
+    "F4": "command:jumptag",
+    "F5": "command:runit",
+    "F9": "command:makeupbg",
+    "Shift-F2": "command:prevBookmark"
 }

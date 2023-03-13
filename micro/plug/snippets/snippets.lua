@@ -358,6 +358,9 @@ local function EnsureSnippets(bp)
 end
 
 function onBeforeTextEvent(sb, ev)
+	if true then
+		return true
+	end
 	debug1("onBeforeTextEvent(ev)",ev)
 	if currentSnippet ~= nil and currentSnippet.view.Buf.SharedBuffer == sb then
 		if currentSnippet.modText then

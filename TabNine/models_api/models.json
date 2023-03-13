@@ -9,8 +9,7 @@
       "specializedForLanguage": "java",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "d8702ba8924d0c2d199f150dd06014c1b9bef8db17a9c0d84399719382f52ced",
@@ -21,8 +20,7 @@
       "specializedForLanguage": "python",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "591b421bdc757cc6e213b8c7d983835e5e2b03510df20183fae389668f354bda",
@@ -33,8 +31,7 @@
       "specializedForLanguage": "go",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "b0a64451a40e22dd2e9b7a5b726503176f51cf53db1a16794091c92e17d283b6",
@@ -45,8 +42,7 @@
       "specializedForLanguage": "dart",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "41014ce91795d54cea7337830e118be4d32b967ca3560d72924ff0d279abd1aa",
@@ -57,8 +53,7 @@
       "specializedForLanguage": "hcl",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "f510e7fcff5f368dfceac3d745628c3b4d07bf563341494c25d5949d2f69a20e",
@@ -69,8 +64,7 @@
       "specializedForLanguage": "julia",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "0746f080e958741bba5bdb5a6320178cd582fc763f47a256845372b7cdfabc13",
@@ -81,8 +75,7 @@
       "specializedForLanguage": "ruby",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "5e08a29eb8b4fdb6a896f15a075dd46455c345b61551a5f27ece171463af5c48",
@@ -93,8 +86,7 @@
       "specializedForLanguage": "rust",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "6f5da3741613535906f2a221962b433d04a8ceb3c023b07c6ea543feb29994cf",
@@ -105,8 +97,7 @@
       "specializedForLanguage": null,
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "60671d35cc805bd88b91aaf46d2386a5c535aa92d987b9bc146f4b020238d112",
@@ -117,8 +108,7 @@
       "specializedForLanguage": "cpp",
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "162640eb4381301da6ff3a6913c806965a2ec6a7d3a6943bec51de1088948c72",
@@ -129,8 +119,7 @@
       "specializedForLanguage": null,
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     },
     {
       "modelId": "41ce93190836f023f42f2bb916683bffede489bd604ec1c16d7ae16d71a7f064",
@@ -141,8 +130,7 @@
       "specializedForLanguage": null,
       "sourceType": null,
       "displayName": null,
-      "isProductionReady": true,
-      "isManuallySelectable": false
+      "isProductionReady": true
     }
   ]
 }
